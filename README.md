@@ -7,7 +7,7 @@ La API está diseñada en Python, versión detallada más adelante, y el fronten
 # Version de Python
 
 ```
- 3.10.12
+3.10-slim
 ```
 # Version de node 
 
