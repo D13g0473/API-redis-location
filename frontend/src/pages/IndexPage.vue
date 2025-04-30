@@ -116,7 +116,6 @@ async function calculateDistance(){
                 }
             }).onOk(async () => {
                 console.log('Nuevo lugar agregado, recargando mapa...')
-                // await reloadPlaces()
   })
 }
 async function showNearly() {
@@ -205,20 +204,16 @@ async function setManualLocation() {
     userLat.value = lat
     userLon.value = lon
 
-    // Mover marcador en el mapa
     map.value.setView([lat, lon], 15)
     
-    // Opcional: eliminar marcador anterior si existía
     if (map.value.userMarker) {
       map.value.removeLayer(map.value.userMarker)
     }
 
-    // Crear nuevo marcador
     const marker = L.marker([lat, lon]).bindPopup('¡Estás aquí!')
     marker.addTo(map.value).openPopup()
     map.value.userMarker = marker
 
-    // Enviar a Redis
     try {
       await fetch(`${apiUrl}update_location`, {
         method: 'POST',
@@ -254,7 +249,6 @@ onMounted(async () => {
       marker.addTo(map.value).openPopup()
       map.value.userMarker = marker
 
-      // Cargar todos los lugares inicialmente
       for (const [label, groupName] of Object.entries(groups)) {
         const places = await fetchPlaces(groupName)
 

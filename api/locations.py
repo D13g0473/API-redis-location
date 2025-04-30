@@ -31,20 +31,17 @@ def save_user_location(user_id, longitude, latitude):
 def get_distance_between_user_and_place(user_id, place_name, group):
     user_key = f"user_location"
     place_key = f"poi:{group}"
-    # obtenemos la ubicación del usuario
     user_location = r.geopos(user_key, user_id)
     if not user_location or user_location[0] is None:
         return None
     user_lon, user_lat = user_location[0]
 
-    # obtenemos la ubicación del lugar
     place_location = r.geopos(place_key, place_name)
     if not place_location or place_location[0] is None:
         return None
 
     place_lon, place_lat = place_location[0]
 
-    # calculamos distancia manual
     from geopy.distance import geodesic
     distance = geodesic((user_lat, user_lon), (place_lat, place_lon)).km
 
@@ -57,7 +54,7 @@ def get_all_places(group):
 
     for name in names:
         pos = r.geopos(key, name)
-        if pos and pos[0]:  # Puede venir None si no hay coordenadas
+        if pos and pos[0]: 
             lon, lat = pos[0]
             places.append({
                 "name": name,
