@@ -2,9 +2,7 @@
 # API-redis-mandalorian
 
 # Descripción: 
-La api esta diseñada en python version detallada más adelante y el frontend esta diseñado en quasar framework de vue. 
-Espero sea de su agrado. 
-Cualquier consulta a disposicion.
+La API está diseñada en Python, versión detallada más adelante, y el frontend está diseñado en Quasar Framework de Vue. Espero sea de su agrado. Cualquier consulta, a disposición.
  
 # Version de Python
 
